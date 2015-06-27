@@ -17,3 +17,27 @@
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>
+
+<%= link_to 'レビューを書く', new_book_review_path(@book) %>
+
+<hr>
+
+<h2>レビュー一覧</h2>
+
+<% @book.reviews.each do |review| %>
+  <p>
+    <%= review.body %> <br>
+    by <%= review.user.email %>さん
+  </p>
+<% end %>
+
+<hr>
+
+<h2>レビュー投稿ユーザー一覧</h2>
+  <% @book.users.each do |user| %>
+  <p>
+  <%= user.email %>さん
+  </p>
+  <% end %>
+
+
